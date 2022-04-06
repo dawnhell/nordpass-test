@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ListItem from '~/components/PasswordHealth/components/List/components/ListItem';
+import ListItem from '~/views/PasswordHealth/components/List/components/ListItem';
 import { IItem } from "~/services/getUserItems";
 
 import './list-style.scss';

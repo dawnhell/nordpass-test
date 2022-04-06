@@ -1,25 +1,20 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { API } from '~/constants';
-import getUrl from '~/utils/getUrl';
+import getUser, { IUser } from '~/services/getUser';
 
-interface IUser {
+interface IUserContext {
   updateUser: () => void;
   deleteData: () => void;
   errorMessage: string;
   isLoading: boolean;
-  username: string;
-  email: string;
-  id: string;
+  user: IUser | null;
 }
 
-const UserContext = createContext<IUser>({
+const UserContext = createContext<IUserContext>({
   updateUser: () => {},
   deleteData: () => {},
   errorMessage: null,
   isLoading: true,
-  username: null,
-  email: null,
-  id: null,
+  user: null
 });
 
 export const useUserContext = () => useContext(UserContext);
@@ -27,28 +22,18 @@ export const useUserContext = () => useContext(UserContext);
 export const UserContextProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState<string>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [username, setUsername] = useState<string>(null);
-  const [email, setEmail] = useState<string>(null);
-  const [id, setId] = useState<string>(null);
+  const [user, setUser] = useState<IUser | null>(null)
 
   const updateUser = async () => {
     setErrorMessage(null);
     setIsLoading(true);
 
-    try {
-      const response = await fetch(getUrl(API.User), {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
-      });
+    const response = await getUser();
 
-      const data = await response.json();
-
-      setUsername(data?.username);
-      setEmail(data?.email);
-      setId(data?.id);
-    } catch (error) {
-      setErrorMessage(error.message);
+    if (response.error) {
+      setErrorMessage(response.error);
+    } else {
+      setUser(response.data);
     }
 
     setIsLoading(false);
@@ -57,9 +42,7 @@ export const UserContextProvider = ({ children }) => {
   const deleteData = () => {
     setErrorMessage(null);
     setIsLoading(false);
-    setUsername(null);
-    setEmail(null);
-    setId(null);
+    setUser(null);
   };
 
   useEffect(() => {
@@ -71,9 +54,7 @@ export const UserContextProvider = ({ children }) => {
     deleteData,
     errorMessage,
     isLoading,
-    username,
-    email,
-    id,
+    user
   };
 
   return (

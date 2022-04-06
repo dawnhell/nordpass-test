@@ -1,8 +1,8 @@
 import React from 'react';
-import useLogin from '~/components/Login/useLogin';
+import useLogin from '~/views/Login/useLogin';
 
+import ErrorBlock from '../ErrorBlock';
 import './login-style.scss';
-import ErrorBlock from '../ErrorBlock/ErrorBlock';
 
 const Login = () => {
   const {

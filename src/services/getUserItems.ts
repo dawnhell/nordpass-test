@@ -2,7 +2,7 @@ import {API} from "~/constants";
 import getUrl from "~/utils/getUrl";
 
 export interface IItem {
-  id: number;
+  id: string;
   title: string,
   description: string,
   password: string,

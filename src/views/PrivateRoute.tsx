@@ -6,7 +6,7 @@ const PrivateRoute: FC<RouteProps> = ({
   path,
   component,
 }) => {
-  const {push} = useHistory();
+  const { push } = useHistory();
   const token = localStorage.getItem('token');
 
   if (!token) {

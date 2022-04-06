@@ -4,27 +4,23 @@ import { Routes } from '~/constants';
 import itemHasWeakPassword from '~/utils/itemHasWeakPassword';
 import itemHasReusedPassword from '~/utils/itemHasReusedPassword';
 import itemHasOldPassword from '~/utils/itemHasOldPassword';
-import List from './components/List/List';
 
+import usePasswordHealth from './usePasswordHealth';
+import List from './components/List/List';
 import Filter from './components/Filter/Filter';
 import Header from './components/Header/Header';
-import useItemsProvider from './useItemsProvider';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 import LoadingScreen from '../LoadingScreen';
-import { useUserContext } from '../UserContext';
 
 const PasswordHealth = () => {
   const {
-    errorMessage: userProviderErrorMessage,
-    isLoading: userDataIsLoading,
-    username,
-  } = useUserContext();
-
-  const {
-    items,
     isLoading,
+    userDataIsLoading,
+    userProviderErrorMessage,
     errorMessage,
-  } = useItemsProvider();
+    items,
+    user
+  } = usePasswordHealth()
 
   if (isLoading || userDataIsLoading) {
     return <LoadingScreen/>
@@ -36,10 +32,13 @@ const PasswordHealth = () => {
 
   return (
     <div className="container">
-      <Header items={items} username={username}/>
+      <Header items={items} username={user?.username}/>
 
       <Filter items={items}/>
 
+      {/* I didn't move this routes into separate PasswordHealthRoutes.tsx file
+        because basically there are no actual screens in there
+       */}
       <Switch>
         <Route exact path={Routes.PasswordHealth}>
           <List items={items}/>
