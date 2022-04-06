@@ -1,5 +1,5 @@
-import {FC} from 'react';
-import {useHistory} from 'react-router-dom';
+import { FC, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 
 interface IFilterTab {
   title: string;
@@ -12,10 +12,14 @@ const FilterTab: FC<IFilterTab> = ({
   count,
   path,
 }) => {
-  const {push} = useHistory();
+  const { push } = useHistory();
+
+  const onTabClick = useCallback(() => {
+    push(path)
+  }, [push, path])
 
   return (
-    <div className="filter-tab" onClick={() => push(path)}>
+    <div className="filter-tab" onClick={onTabClick}>
       {`${title} (${count})`}
     </div>
   );
