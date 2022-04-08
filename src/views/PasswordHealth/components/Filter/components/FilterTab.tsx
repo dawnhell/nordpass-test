@@ -12,14 +12,15 @@ const FilterTab: FC<IFilterTab> = ({
   count,
   path,
 }) => {
-  const { push } = useHistory();
+  const { push, location } = useHistory();
+  const isActive = location.pathname.includes(title.toLowerCase());
 
   const onTabClick = useCallback(() => {
     push(path)
   }, [push, path])
 
   return (
-    <div className="filter-tab" onClick={onTabClick}>
+    <div className={`filter-tab ${isActive ? 'filter-tab-active' : ''}`} onClick={onTabClick}>
       {`${title} (${count})`}
     </div>
   );
