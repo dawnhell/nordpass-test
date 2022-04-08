@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import getUser, { IUser } from '~/services/getUser';
+import getUser, { IUser } from './services/getUser';
 
 interface IUserContext {
   updateUser: () => void;

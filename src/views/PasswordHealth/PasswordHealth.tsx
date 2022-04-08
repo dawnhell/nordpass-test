@@ -32,7 +32,7 @@ const PasswordHealth = () => {
 
   return (
     <div className="container">
-      <Header items={items} username={user?.username}/>
+      <Header numberOfItems={items.length} username={user?.username}/>
 
       <Filter items={items}/>
 

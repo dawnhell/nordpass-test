@@ -10,8 +10,6 @@ const PrivateRoute: FC<RouteProps> = ({
   const { push } = useHistory();
   const isAuthenticated = useIsAuthenticated();
 
-  console.log('in PRIVATE route', isAuthenticated)
-
   if (!isAuthenticated) {
     push(Routes.Login);
   }

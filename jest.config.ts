@@ -10,6 +10,9 @@ const config: Config.InitialOptions = {
       isolatedModules: true,
     },
   },
+  moduleNameMapper: {
+    "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules",
+  }
 };
 
 export default config;
