@@ -14,33 +14,53 @@ html, body, #app {
 }
 
 .input {
-  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #2d2d3a;
+  padding: 12px 8px;
 }
 
 .button {
-  border-width: 0;
-  border-color: $teal;
+  border: none;
   background-color: $teal;
-  border-radius: 9999px;
+  border-radius: 8px;
   cursor: pointer;
   color: white;
-  padding: 12px 6px;
+  padding: 12px 24px;
   font-weight: bold;
   font-size: 16px;
+  transition: background-color .3s;
+
+  &:hover {
+    background-color: #327a77;
+  }
 }
 
 .loading-screen {
   @include flex-center;
-  font-size: large;
+  font-size: 20px;
+  height: 100vh;
 }
 
 .modal {
   position: relative;
-  width: 300px;
+  width: 320px;
   display: flex;
   background-color: #e1e1e1;
-  padding: 18px 32px;
+  border-radius: 6px;
+  padding: 32px 24px;
   flex-direction: column;
-  left: 40%;
-  top: 38%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    text-align: center;
+    margin: 0 0 8px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 18px;
+    margin: 0 0 24px;
+  }
 }

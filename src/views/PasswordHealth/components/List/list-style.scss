@@ -1,0 +1,66 @@
+@import '../../../../style/_variables';
+
+.list {
+  list-style: none;
+  padding: 16px;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+
+  .item {
+    min-height: 32px;
+    border-bottom: 1px solid $grey-light;
+    padding: 16px 12px;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color .3s;
+
+    .item-icon {
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      height: 42px;
+      width: 42px;
+      background-color: $grey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 12px;
+    }
+
+    &-info {
+      display: flex;
+    }
+
+    &-description {
+
+      h2 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+        font-size: 16px;
+      }
+    }
+
+    .update-btn {
+      background: $grey-light;
+      border: none;
+      font-size: 14px;
+      border-radius: 6px;
+      transition: background-color .3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $grey;
+      }
+    }
+
+    &:hover {
+      background-color: $grey-lightest;
+    }
+  }
+}
