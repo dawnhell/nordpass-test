@@ -25,11 +25,13 @@ export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState<IUser | null>(null)
 
   const updateUser = async () => {
+    console.log('CoNtext updatingUser 1')
     setErrorMessage(null);
     setIsLoading(true);
 
     const response = await getUser();
 
+    console.log('in UserContext getting', response)
     if (response.error) {
       setErrorMessage(response.error);
     } else {
@@ -44,10 +46,6 @@ export const UserContextProvider = ({ children }) => {
     setIsLoading(false);
     setUser(null);
   };
-
-  useEffect(() => {
-   updateUser();
-  }, []);
 
   const value = {
     updateUser,

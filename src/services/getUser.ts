@@ -26,7 +26,9 @@ const getUser = async (): Promise<IGetUserResponse> => {
     const data = await response.json();
     const { token } = data;
 
-    localStorage.setItem('token', token);
+    console.log('GOT USER', data)
+
+    // localStorage.setItem('token', token);
 
     return {
       data,

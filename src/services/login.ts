@@ -18,6 +18,7 @@ const login = async (username: string, password: string): Promise<ILoginResponse
     const data = await response.json();
     const { token } = data;
 
+    console.log('LOGGED IN GOOD', token)
     localStorage.setItem('token', token);
 
     return {

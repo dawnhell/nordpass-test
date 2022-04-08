@@ -1,6 +1,7 @@
 import React from 'react';
 import useLogin from '~/views/Login/useLogin';
 
+import LoadingDots from '../components/LoadingDots';
 import ErrorBlock from '../ErrorBlock';
 import './login-style.scss';
 
@@ -11,7 +12,8 @@ const Login = () => {
     password,
     onPasswordChange,
     errorMessage,
-    onSubmit
+    onSubmit,
+    isLoading
   } = useLogin()
 
   return (
@@ -37,8 +39,8 @@ const Login = () => {
 
         <ErrorBlock error={errorMessage}/>
 
-        <button type="submit" className="button" disabled={!username || !password}>
-          Login
+        <button type="submit" className="button" disabled={!username || !password || isLoading}>
+          {isLoading ? <LoadingDots /> : 'Login'}
         </button>
       </form>
     </div>

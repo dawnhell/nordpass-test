@@ -12,13 +12,13 @@ const ListItem: FC<IListItem> = ({ item }) => (
     <ItemIcon title={item.title}/>
 
     <div>
-      <div className="title">
+      <h2 className="title">
         {item.title}
-      </div>
+      </h2>
 
-      <div className="description">
+      <p className="description">
         {item.description}
-      </div>
+      </p>
     </div>
 
     <UpdateModal item={item} />

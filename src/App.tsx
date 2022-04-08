@@ -1,8 +1,17 @@
 import React from 'react';
+import { UserContextProvider } from '~/views/UserContext';
 
 import Routes from './Routes';
 import './style/styles.scss';
 
-const App = () => <Routes />;
+const App = () => {
+  /* Usually here goes some initialization calls(e.g. store init, initial authentication request, ...)  */
+
+  return (
+    <UserContextProvider>
+      <Routes />
+    </UserContextProvider>
+  );
+}
 
 export default App;

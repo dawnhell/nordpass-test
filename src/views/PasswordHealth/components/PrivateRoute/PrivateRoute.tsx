@@ -1,21 +1,22 @@
-import {FC} from 'react';
-import {Route, RouteProps, useHistory} from 'react-router-dom';
+import { FC } from 'react';
+import { Route, RouteProps, useHistory } from 'react-router-dom';
 import {Routes} from '~/constants';
 import useIsAuthenticated from '~/views/PasswordHealth/components/PrivateRoute/useIsAuthenticated';
 
-const PublicRoute: FC<RouteProps> = ({
- path,
- component,
+const PrivateRoute: FC<RouteProps> = ({
+  path,
+  component,
 }) => {
   const { push } = useHistory();
   const isAuthenticated = useIsAuthenticated();
 
-  console.log('isAuth in PUBLIC', isAuthenticated)
-  if (isAuthenticated) {
-    push(Routes.PasswordHealth);
+  console.log('in PRIVATE route', isAuthenticated)
+
+  if (!isAuthenticated) {
+    push(Routes.Login);
   }
 
   return <Route path={path} component={component}/>
 };
 
-export default PublicRoute;
+export default PrivateRoute;
