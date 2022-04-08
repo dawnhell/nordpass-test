@@ -1,3 +1,5 @@
+import React from 'react';
+
 const LoadingScreen = () => (
   <div className="loading-screen">
     Loading...

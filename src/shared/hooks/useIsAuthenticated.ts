@@ -1,4 +1,4 @@
-import { useUserContext } from '~/views/UserContext';
+import { useUserContext } from '~/UserContext';
 
 function useIsAuthenticated(): boolean {
   const {
@@ -6,8 +6,6 @@ function useIsAuthenticated(): boolean {
     isLoading,
     user
   } = useUserContext();
-
-  console.log('useIsAuthenticated', isLoading, user, errorMessage)
 
   return !isLoading && !errorMessage && !!user;
 }

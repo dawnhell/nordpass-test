@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserContextProvider } from '~/views/UserContext';
+import { UserContextProvider } from '~/UserContext';
 
 import Routes from './Routes';
 import './style/styles.scss';

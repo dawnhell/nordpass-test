@@ -37,7 +37,8 @@ html, body, #app {
 
 .loading-screen {
   @include flex-center;
-  font-size: large;
+  font-size: 20px;
+  height: 100vh;
 }
 
 .modal {

@@ -5,7 +5,7 @@ import { IItem } from '~/services/getUserItems';
 import logout from '~/services/logout';
 
 import './header-style.scss';
-import UserContext from '~/views/UserContext';
+import UserContext from '~/UserContext';
 
 interface IHeader {
   items: Array<IItem>;

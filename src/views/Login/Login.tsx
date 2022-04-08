@@ -1,7 +1,7 @@
 import React from 'react';
 import useLogin from '~/views/Login/useLogin';
 
-import LoadingDots from '../components/LoadingDots';
+import LoadingDots from '../../shared/components/LoadingDots';
 import ErrorBlock from '../ErrorBlock';
 import './login-style.scss';
 

@@ -1,7 +1,8 @@
 import { IUser } from '~/services/getUser';
 import { IItem } from '~/services/getUserItems';
-import useItemsProvider from '~/views/PasswordHealth/useItemsProvider';
-import { useUserContext } from '~/views/UserContext';
+import { useUserContext } from '~/UserContext';
+
+import useItemsProvider from './useItemsProvider';
 
 interface IReturnedValue {
   isLoading: boolean;

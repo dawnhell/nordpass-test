@@ -1,7 +1,8 @@
 import itemHasWeakPassword from '../itemHasWeakPassword';
 import { IItem } from '../../services/getUserItems';
 
-// Todo fix problem that causes this test to fail
+// Todo fix problem that causes this test to fail - DONE
+// The problem was in check condition in itemHasWeakPassword util
 describe('should return true if password do not match requirements', () => {
   test.each([
     [

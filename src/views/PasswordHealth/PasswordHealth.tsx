@@ -6,10 +6,10 @@ import itemHasReusedPassword from '~/utils/itemHasReusedPassword';
 import itemHasOldPassword from '~/utils/itemHasOldPassword';
 
 import usePasswordHealth from './usePasswordHealth';
-import List from './components/List/List';
-import Filter from './components/Filter/Filter';
-import Header from './components/Header/Header';
-import ErrorBlock from '../ErrorBlock/ErrorBlock';
+import List from './components/List';
+import Filter from './components/Filter';
+import Header from '../../shared/components/Header';
+import ErrorBlock from '../ErrorBlock';
 import LoadingScreen from '../LoadingScreen';
 
 const PasswordHealth = () => {

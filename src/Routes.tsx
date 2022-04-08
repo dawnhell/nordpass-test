@@ -1,12 +1,12 @@
 import React, { FC, useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
-import LoadingScreen from '~/views/LoadingScreen';
-import UserContext from '~/views/UserContext';
+import LoadingScreen from '~/views/LoadingScreen/LoadingScreen';
+import UserContext from '~/UserContext';
 
 import Login from './views/Login/Login';
 import PasswordHealth from './views/PasswordHealth/PasswordHealth';
-import PrivateRoute from './views/PasswordHealth/components/PrivateRoute/PrivateRoute';
-import PublicRoute from './views/PublicRoute';
+import PrivateRoute from './shared/components/PrivateRoute/PrivateRoute';
+import PublicRoute from './shared/components/PublicRoute/PublicRoute';
 import { Routes } from './constants';
 
 const RoutesComponent: FC = () => {

@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Routes } from '~/constants';
 import login from '~/services/login';
-import { useUserContext } from '~/views/UserContext';
+import { useUserContext } from '~/UserContext';
 
 interface IReturnedValue {
   username: string;
